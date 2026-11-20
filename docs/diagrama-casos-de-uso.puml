@@ -1,0 +1,37 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam defaultFontName Liberation Serif
+skinparam usecase {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam actor {
+  BorderColor black
+  BackgroundColor white
+}
+
+actor Membro
+actor "Bibliotecário" as Bib
+
+rectangle "Sistema de Biblioteca" {
+  usecase "Consultar acervo" as C
+  usecase "Realizar empréstimo" as E
+  usecase "Registrar devolução" as D
+  usecase "Realizar reserva" as R
+  usecase "Gerenciar livros\ne exemplares" as GL
+  usecase "Gerenciar membros" as GM
+  usecase "Gerenciar multas" as GMu
+}
+
+Membro --> C
+Membro --> E
+Membro --> D
+Membro --> R
+
+E <-- Bib
+D <-- Bib
+GL <-- Bib
+GM <-- Bib
+GMu <-- Bib
+@enduml
